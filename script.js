@@ -20,6 +20,7 @@ const playRound = (userChoice) => {
 
     if (userChoice === computerChoice) {
         msgElem.innerText = `It's a tie! Both chose ${userChoice}.`;
+        msgElem.style.backgroundColor = "#081b31";
     } else if (
         (userChoice === "rock" && computerChoice === "scissors") ||
         (userChoice === "paper" && computerChoice === "rock") ||
@@ -27,9 +28,11 @@ const playRound = (userChoice) => {
     ) {
         userScore++;
         msgElem.innerText = `You win! ${userChoice} beats ${computerChoice}.`;
+        msgElem.style.backgroundColor = "green";
     } else {
         computerScore++;
         msgElem.innerText = `You lose! ${computerChoice} beats ${userChoice}.`;
+        msgElem.style.backgroundColor = "red";
     }
 
     userScoreElem.textContent = `Your score : ${userScore}`;
@@ -48,10 +51,13 @@ const stopBtn = document.querySelector("#stop");
 stopBtn.addEventListener("click", () => {
     if (userScore > computerScore) {
         msgElem.innerText = "You Won!";
+        msgElem.style.backgroundColor = "green";
     } else if (userScore < computerScore) {
         msgElem.innerText = "Computer Won!";
+        msgElem.style.backgroundColor = "red";
     } else {
         msgElem.innerText = "It's a Tie!";
+        msgElem.style.backgroundColor = "#081b31";
     }
 
     userScore = 0;
